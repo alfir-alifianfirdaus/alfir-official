@@ -2,6 +2,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap");
 
 /* --- Global & Reset CSS --- */
+:root {
+  /* Palet Warna */
+  --primary-color: #66fcf1;
+  --secondary-color: #45a29e;
+  --dark-bg: #0b0c10;
+  --mid-dark-bg: #1f2833;
+  --text-color: #c5c6c7;
+  --light-text: #a0a8b4;
+  --shadow-color: rgba(102, 252, 241, 0.4);
+
+  /* Ukuran Font */
+  --font-size-h1: clamp(2em, 8vw, 3.5em);
+  --font-size-h2: clamp(1.8em, 6vw, 2.5em);
+  --font-size-h3: 1.4em;
+  --font-size-p: clamp(1em, 2vw, 1.2em);
+}
+
 body,
 h1,
 h2,
@@ -17,8 +34,8 @@ li {
 body {
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
-  background-color: #0b0c10;
-  color: #c5c6c7;
+  background-color: var(--dark-bg);
+  color: var(--text-color);
   overflow-x: hidden;
 }
 
@@ -36,8 +53,12 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: #0b0c10;
-  background-image: linear-gradient(135deg, #1f2833 0%, #0b0c10 100%);
+  background-color: var(--dark-bg);
+  background-image: linear-gradient(
+    135deg,
+    var(--mid-dark-bg) 0%,
+    var(--dark-bg) 100%
+  );
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
@@ -71,21 +92,22 @@ body {
   position: relative;
   z-index: 2;
 }
-#hero .content span {
-  font-size: 1.5em;
-  color: #66fcf1;
-  text-shadow: 0 0 5px white;
-}
 
 #hero h1 {
   font-family: "Playfair Display", serif;
-  font-size: 2.8em;
+  font-size: var(--font-size-h1);
   margin-bottom: 20px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+#hero h1 span {
+  font-size: 1em; /* Menggunakan em agar mengikuti ukuran h1 */
+  color: var(--primary-color);
+  text-shadow: 0 0 5px white;
+}
+
 #hero p {
-  font-size: 1.2em;
+  font-size: var(--font-size-p);
   margin-bottom: 40px;
   max-width: 700px;
   margin-left: auto;
@@ -94,8 +116,8 @@ body {
 
 .cta-button {
   display: inline-block;
-  background: #66fcf1;
-  color: #0b0c10;
+  background: var(--primary-color);
+  color: var(--dark-bg);
   padding: 15px 30px;
   text-decoration: none;
   border-radius: 50px;
@@ -103,12 +125,12 @@ body {
   letter-spacing: 1px;
   transition: transform 0.3s ease, background 0.3s ease;
   border: none;
-  box-shadow: 0 4px 15px rgba(102, 252, 241, 0.4);
+  box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 .cta-button:hover {
   transform: translateY(-5px) scale(1.05);
-  background: #45a29e;
+  background: var(--secondary-color);
 }
 
 /* --- Section Styling --- */
@@ -120,10 +142,10 @@ section {
 
 section h2 {
   font-family: "Playfair Display", serif;
-  font-size: 2.5em;
+  font-size: var(--font-size-h2);
   text-align: center;
   margin-bottom: 50px;
-  color: #45a29e;
+  color: var(--secondary-color);
   position: relative;
 }
 
@@ -132,7 +154,7 @@ section h2::after {
   display: block;
   width: 60px;
   height: 3px;
-  background: #66fcf1;
+  background: var(--primary-color);
   margin: 10px auto 0;
 }
 
@@ -158,14 +180,14 @@ section h2::after {
 }
 
 #keunggulan .keunggulan-item h3 {
-  color: #66fcf1;
-  font-size: 1.4em;
+  color: var(--primary-color);
+  font-size: var(--font-size-h3);
   margin-bottom: 10px;
 }
 
 /* --- Testimoni Section --- */
 #testimoni {
-  background: #1f2833;
+  background: var(--mid-dark-bg);
 }
 
 #testimoni .testimoni-list {
@@ -179,12 +201,12 @@ section h2::after {
   padding: 25px;
   border-radius: 10px;
   text-align: center;
-  border-left: 5px solid #66fcf1;
+  border-left: 5px solid var(--primary-color);
 }
 
 #testimoni .testimoni-item p {
   font-style: italic;
-  color: #a0a8b4;
+  color: var(--light-text);
 }
 
 /* --- Galeri Section (Parallax) --- */
@@ -233,7 +255,7 @@ section h2::after {
   padding: 15px 30px;
   border-radius: 50px;
   text-decoration: none;
-  color: #0b0c10;
+  color: var(--dark-bg);
   font-weight: bold;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: none;
@@ -241,7 +263,7 @@ section h2::after {
 }
 
 .whatsapp-button {
-  background: #66fcf1;
+  background: var(--primary-color);
 }
 
 .instagram-button {
@@ -267,13 +289,17 @@ footer {
   text-align: center;
   padding: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background: #1f2833;
+  background: var(--mid-dark-bg);
 }
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
   #hero h1 {
-    font-size: 1.5em;
+    font-size: 2.2em;
+  }
+
+  #hero h1 span {
+    font-size: 1em; /* Menggunakan 1em agar tidak terlalu besar */
   }
 
   #hero p {
@@ -281,19 +307,20 @@ footer {
   }
 
   section h2 {
-    font-size: 2em;
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero h1 {
+    font-size: 1.8em;
   }
 
-  #keunggulan .keunggulan-item {
-    padding: 20px;
+  #hero h1 span {
+    font-size: 1.2em; /* sedikit lebih besar dari h1 agar menonjol */
   }
 
-  .contact-details {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contact-button {
-    width: 80%;
+  #hero p {
+    font-size: 0.9em;
   }
 }
